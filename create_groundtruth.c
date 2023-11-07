@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
 int usage(char const *prg)
 {
     fprintf(stderr, "usage: %s [parameters]\n", prg);
-    fprintf(stderr, "parameters: -base  IN  [base vectors filename (.fvecs/.ivecs)] REQUIRED\n");
-    fprintf(stderr, "            -query IN  [query vectors filename (.fvecs/.ivecs)] REQUIRED\n");
+    fprintf(stderr, "parameters: -base  IN  [base vectors filename (.fvecs)] REQUIRED\n");
+    fprintf(stderr, "            -query IN  [query vectors filename (.fvecs)] REQUIRED\n");
     fprintf(stderr, "            -truth OUT [ground truth filename (.ivecs)] REQUIRED\n");
     return -1;
 }
