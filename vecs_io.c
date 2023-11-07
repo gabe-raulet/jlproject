@@ -1,5 +1,4 @@
 #include "vecs_io.h"
-
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -41,7 +40,7 @@ int vecs_read(FILE *fp, void **data, int *d)
 int vecs_write(FILE *fp, const void *data, int d, int n)
 {
     int i;
-    const float *p = data;
+    const unsigned char *p = data;
 
     assert(fp != NULL && data != NULL);
 
