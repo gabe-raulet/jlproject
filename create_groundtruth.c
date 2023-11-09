@@ -5,7 +5,7 @@
 #include <math.h>
 #include "vecs_io.h"
 
-typedef struct { int id; float dist; } tuple_t;
+typedef struct { int id; double dist; } tuple_t;
 
 int usage(char const *prg);
 int read_fvecs(char const *fname, float **vecs, int *d);
@@ -122,7 +122,7 @@ int knns(void *mem, int *ids, const float *qvec, const float *base, int k, int n
         }
 
         tuples[pid].id = pid;
-        tuples[pid].dist = dist;
+        tuples[pid].dist = sqrt(dist);
     }
 
     qsort(tuples, n, sizeof(tuple_t), tuple_compare);
