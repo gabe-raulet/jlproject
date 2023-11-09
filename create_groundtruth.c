@@ -10,10 +10,10 @@ int read_fvecs(char const *fname, float **vecs, int *d);
 
 int main(int argc, char *argv[])
 {
-    int i, j;
+    int i, j, k;
     char *base_fname, *query_fname, *truth_fname;
 
-    if (argc != 7) return usage(argv[0]);
+    if (argc != 8) return usage(argv[0]);
 
     for (i = 1; i < argc; ++i)
     {
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
         if (!strcmp(a, "-base") && i+1 < argc) base_fname = argv[++i];
         else if (!strcmp(a, "-query") && i+1 < argc) query_fname = argv[++i];
         else if (!strcmp(a, "-truth") && i+1 < argc) truth_fname = argv[++i];
+        else if (!strcmp(a, "-k") && i+1 < argc) k = atoi(argv[++i]);
         else
         {
             fprintf(stderr, "error: unknown parameter '%s'\n", a);
@@ -49,6 +50,7 @@ int usage(char const *prg)
     fprintf(stderr, "parameters: -base  IN  [base vectors filename (.fvecs)] REQUIRED\n");
     fprintf(stderr, "            -query IN  [query vectors filename (.fvecs)] REQUIRED\n");
     fprintf(stderr, "            -truth OUT [ground truth filename (.ivecs)] REQUIRED\n");
+    fprintf(stderr, "            -k     IN  [report k nearest neighbors INT] REQUIRED\n");
     return -1;
 }
 
