@@ -122,7 +122,7 @@ int knns(void *mem, int *ids, const float *qvec, const float *base, int k, int n
         }
 
         tuples[pid].id = pid;
-        tuples[pid].dist = sqrt(dist);
+        tuples[pid].dist = dist;
     }
 
     qsort(tuples, n, sizeof(tuple_t), tuple_compare);
